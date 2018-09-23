@@ -1,0 +1,73 @@
+
+
+Link:
+https://github.com/algaworks/curso-jpa-hibernate/tree/master/Aulas/A%20Java%20Persistence%20Query%20Language%20(JPQL)/crud-jpa-hibernate/src
+
+---------------------------------------------------------------------------------------------------------------------------------
+---->>>>MySQL
+-->>Link: https://github.com/algaworks/curso-jpa-hibernate/tree/master/Aulas/Criando%20primeiras%20tabelas%20no%20MySQL
+
+CREATE TABLE cliente (
+  codigo BIGINT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(100) NOT NULL,
+  idade INTEGER,
+  sexo VARCHAR(1) NOT NULL,
+  profissao VARCHAR(30),
+  PRIMARY KEY (codigo)
+);
+
+CREATE TABLE conta_corrente (
+  codigo BIGINT NOT NULL AUTO_INCREMENT,
+  numero VARCHAR(12) NOT NULL,
+  saldo DECIMAL,
+  codigo_cliente BIGINT NOT NULL,
+  PRIMARY KEY (codigo),
+  FOREIGN KEY (codigo_cliente) REFERENCES cliente (codigo)
+);
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+--->>> persistence.xml
+-->Link:  https://github.com/algaworks/curso-jpa-hibernate/blob/master/Aulas/A%20Java%20Persistence%20Query%20Language%20(JPQL)/crud-jpa-hibernate/src/META-INF/persistence.xml
+
+ <?xm version="1.0" encoding="UTF-8"?>
+ <persistence version="2.0"
+    xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+ 
+    <persistence-unit name="exempLoPU" transaction-type="RESOURCE_LOCAL">
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://Localhost:3306/cadastro_cliente"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+
+            <!--validate | update | create | create-drop -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDiaLect"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

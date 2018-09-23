@@ -6,25 +6,22 @@ import javax.persistence.Persistence;
 
 import com.algaworks.curso.modelo.Cliente;
 
-public class SalvandoPrimeiroObjeto {
+public class RemovedoPrimeiroObjeto {
 
-	public static void main(String[] args)  {
-		
+	public static void main(String[] args) {
+
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemploPU");
 		EntityManager em = emf.createEntityManager();
 		
-		Cliente cliente = new Cliente();
-		cliente.setNome("Pedro Bial");
-		cliente.setIdade(40);
-		cliente.setProfissao("Jornalista");
-		cliente.setSexo("M");
+
+		Cliente cliente = em.find(Cliente.class, 2L);
 		
 		em.getTransaction().begin();
-		em.persist(cliente);
+		em.remove(cliente);
 		em.getTransaction().commit();
 		
-		System.out.println("Cliente Salvo!!!");
-//		em.close();
+		System.out.println("Objeto removido com sucesso!");
+
 	}
 
 }
