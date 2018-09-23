@@ -13,7 +13,6 @@ public class RemovedoPrimeiroObjeto {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemploPU");
 		EntityManager em = emf.createEntityManager();
 		
-
 		Cliente cliente = em.find(Cliente.class, 2L);
 		
 		em.getTransaction().begin();

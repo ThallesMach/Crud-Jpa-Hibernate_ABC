@@ -4,6 +4,7 @@ Link:
 https://github.com/algaworks/curso-jpa-hibernate/tree/master/Aulas/A%20Java%20Persistence%20Query%20Language%20(JPQL)/crud-jpa-hibernate/src
 
 ---------------------------------------------------------------------------------------------------------------------------------
+
 ---->>>>MySQL
 -->>Link: https://github.com/algaworks/curso-jpa-hibernate/tree/master/Aulas/Criando%20primeiras%20tabelas%20no%20MySQL
 
