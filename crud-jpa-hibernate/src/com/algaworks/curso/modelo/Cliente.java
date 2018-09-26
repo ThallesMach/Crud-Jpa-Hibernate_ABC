@@ -17,9 +17,6 @@ public class Cliente {
 	private String profissao;
 	
 	
-	
-	
-	
 	public Long getCodigo() {
 		return codigo;
 	}

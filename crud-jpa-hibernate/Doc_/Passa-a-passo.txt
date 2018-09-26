@@ -17,6 +17,19 @@ CREATE TABLE cliente (
   PRIMARY KEY (codigo)
 );
 
+select * from cliente;
+
+insert into cliente(nome, idade, sexo, profissao)
+	values("Jose da Silva", 25, "M", "Engenheiro");
+    
+select * from cliente;
+    
+insert into cliente(nome, idade, sexo, profissao)
+		values("Maria Rita", 22, "F", "Médica");
+
+select * from cliente;
+
+
 CREATE TABLE conta_corrente (
   codigo BIGINT NOT NULL AUTO_INCREMENT,
   numero VARCHAR(12) NOT NULL,
@@ -31,7 +44,8 @@ CREATE TABLE conta_corrente (
 
 ---------------------------------------------------------------------------------------------------------------------------------
 --->>> persistence.xml
--->Link:  https://github.com/algaworks/curso-jpa-hibernate/blob/master/Aulas/A%20Java%20Persistence%20Query%20Language%20(JPQL)/crud-jpa-hibernate/src/META-INF/persistence.xml
+-->Link:  
+https://github.com/algaworks/curso-jpa-hibernate/blob/master/Aulas/A%20Java%20Persistence%20Query%20Language%20(JPQL)/crud-jpa-hibernate/src/META-INF/persistence.xml
 
  <?xm version="1.0" encoding="UTF-8"?>
  <persistence version="2.0"
