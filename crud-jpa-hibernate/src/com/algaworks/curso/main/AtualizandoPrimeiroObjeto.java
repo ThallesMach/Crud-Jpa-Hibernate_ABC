@@ -9,12 +9,12 @@ import com.algaworks.curso.modelo.Cliente;
 public class AtualizandoPrimeiroObjeto {
 	
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemploPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-PU");
 		EntityManager em = emf.createEntityManager();
 
 		Cliente cliente = em.find(Cliente.class, 1L);
 		em.getTransaction().begin();
-		cliente.setNome("José da Silva Pereira");
+		cliente.setNome("Beto Silveira");
 		cliente.setIdade(28);
 		em.getTransaction().commit();
 		

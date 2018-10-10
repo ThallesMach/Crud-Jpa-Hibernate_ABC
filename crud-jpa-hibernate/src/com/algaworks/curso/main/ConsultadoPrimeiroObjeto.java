@@ -10,7 +10,7 @@ public class ConsultadoPrimeiroObjeto {
 
 	public static void main(String[] args) {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemploPU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-PU");
 		EntityManager em = emf.createEntityManager();
 		
 		Cliente cliente = em.find(Cliente.class, 1L );
