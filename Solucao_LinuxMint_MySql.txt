@@ -1,0 +1,44 @@
+
+--->>>> MySql workbench : Access denied for user 'root'@'localhost' in linux
+
+
+The reason is that recent Ubuntu installation (maybe others also), 
+mysql is using by default the UNIX or  auth_socket plugin.
+
+
+1. set root user to mysql_native_password
+
+$ sudo mysql -u root -p # I had to use "sudo" since is new installation
+
+mysql:~ USE mysql;
+SELECT User, Host, plugin FROM mysql.user;
+mysql:~ UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql:~ FLUSH PRIVILEGES;
+mysql:~ exit;
+
+$ service mysql restart
+
+
+
+
+2. Add new db_user with you system_user(recommended)
+$ sudo mysql -u root # I had to use "sudo" since is new installation
+
+mysql:~ USE mysql;
+mysql:~ CREATE USER 'YOUR_SYSTEM_USER'@'localhost' IDENTIFIED BY '';
+mysql:~ GRANT ALL PRIVILEGES ON * . * TO 'YOUR_SYSTEM_USER'@'localhost';
+mysql:~ UPDATE user SET plugin='auth_socket' WHERE User='YOUR_SYSTEM_USER';
+mysql:~ FLUSH PRIVILEGES;
+mysql:~ exit;
+
+$ service mysql restart
+
+Remember that if you use option #2 you'll have to connect to mysql as your system username (mysql -u YOUR_SYSTEM_USER)
+
+
+--->>>>Link:
+https://www.youtube.com/watch?v=SJm91cvE_ks&t=507s
+
+
+
+
